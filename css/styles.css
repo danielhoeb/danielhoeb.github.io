@@ -193,6 +193,15 @@ a {
     word-spacing: 20px;
 }
 
+/* Menu and header links turn orange under the cursor */
+.topbar a {
+    transition: color 0.2s ease;
+}
+
+.topbar a:hover {
+    color: var(--accent-primary);
+}
+
 .text-label {
     font-family: var(--font-mono);
     font-size: 12px;
