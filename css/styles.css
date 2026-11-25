@@ -1,0 +1,227 @@
+:root {
+    /* Colours */
+    --bg-page:        #fafaf7;
+    --text-primary:   #121212;
+    --text-muted:     #6b6a66;
+    --text-on-accent: #fafaf7;
+    --accent-primary: #d43900;
+    --line-divider:   #dddbd4;
+
+    /* Spacing */
+    --space-xs:  8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+
+    /* Fonts */
+    --font-sans: "Geist", system-ui, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+}
+
+/* Centered column like the Figma frame:
+   1344px content + 48px space left and right = 1440px.
+   On smaller screens the column shrinks, the 48px stay. */
+.topbar, .hero, #work, #about, footer {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+}
+
+.hero{
+    /*background-color: aqua;*/
+
+}
+
+
+.button{
+    display: inline-block;
+    padding: 15px 32px;
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
+    border: 1px solid var(--accent-primary);
+    text-align: center;
+    font-size: 16px;
+}
+
+.hero .button{
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.button-outline{
+    background-color: var(--bg-page);
+    color: var(--accent-primary);
+}
+
+
+.hero img {
+    width: 100%;
+    aspect-ratio: 1344 / 640;
+    object-fit: cover;
+}
+
+header{
+   /* background-color: firebrick;*/
+}
+
+.divider{
+    margin: 5px;
+    background-color: #DDDBD4;
+    height: 2px;
+}
+
+#work{
+   /* background-color: darkslategrey;*/
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md)
+}
+
+.card{
+    padding: var(--space-sm);
+}
+
+.card.horizontal {
+    grid-column: span 2;
+}
+
+.card.horizontal img {
+    aspect-ratio: 856 / 556;
+}
+.card img{
+    width: 100%;
+    height: calc(556 / 1440 * 100vw);
+    object-fit: cover;
+}
+
+#about{
+    /*background-color: darkolivegreen;*/
+}
+
+#about img {
+    max-width: 200px;
+    max-height: 200px;
+    flex-shrink: 0;
+}
+
+.about-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+}
+footer{
+   /* background-color: darkviolet;*/
+}
+
+h1, h2, h3, p, ul, dl, dd {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Text styles Figma styleguide*/
+.text-display-xl {
+    font-size: 88px;
+    font-weight: 500;
+    line-height: 92px;
+    letter-spacing: -0.03em;
+}
+
+.text-display-l {
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: -0.03em;
+}
+
+.text-display-m {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: -0.02em;
+}
+
+.text-body-l {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+}
+
+.text-body-m {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.text-header{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.text-nav {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    word-spacing: 20px;
+}
+
+.text-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+}
+
+.text-muted  { color: var(--text-muted); }
+.text-accent { color: var(--accent-primary); }
+
+
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+
+/* Smaller screens */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
