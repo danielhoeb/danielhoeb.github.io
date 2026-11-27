@@ -387,15 +387,19 @@ a {
         margin: var(--space-lg) 0 var(--space-md);
     }
 
-    /* About: text only, like the Figma */
+    /* About: portrait on top, text below */
     .about-row {
         flex-direction: column;
-        gap: var(--space-sm);
+        gap: var(--space-md);
         padding-top: var(--space-md);
     }
 
     #about img {
-        display: none;
+        width: 160px;
+        height: 160px;
+        max-width: none;
+        max-height: none;
+        object-fit: cover;
     }
 
     .text-display-m {
