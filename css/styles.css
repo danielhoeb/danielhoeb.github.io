@@ -226,10 +226,198 @@ a {
 }
 
 
+/* Menu button (☰): hidden on desktop, shown on phones */
+.menu-button {
+    display: none;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.menu-button span {
+    position: absolute;
+    left: 3px;
+    width: 18px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.menu-button span:nth-child(1) { top: 6px; }
+.menu-button span:nth-child(2) { top: 11px; }
+.menu-button span:nth-child(3) { top: 16px; }
+
+/* Open: the three lines turn into an X */
+.menu-open .menu-button span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.menu-open .menu-button span:nth-child(2) { opacity: 0; }
+.menu-open .menu-button span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+
 /* Smaller screens */
 @media (max-width: 1024px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   Phones (Figma "Home – Mobile")
+   ========================================================= */
+@media (max-width: 700px) {
+
+    .topbar, .hero, #work, #about, footer {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+
+    /* Header: name left, ☰ right, menu folds open below */
+    .topbar {
+        align-items: center;
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
+        font-size: 16px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .topbar .text-nav {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding: var(--space-md) 0 var(--space-sm);
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: -0.02em;
+        word-spacing: normal;
+    }
+
+    .menu-open .topbar .text-nav {
+        display: flex;
+    }
+
+    /* Hero */
+    .text-display-xl {
+        font-size: 34px;
+        line-height: 38px;
+    }
+
+    .hero .text-body-l {
+        margin-top: var(--space-md);
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .button {
+        display: block;
+        width: 100%;
+    }
+
+    .hero .button {
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+
+    .hero .button:first-of-type {
+        margin-top: var(--space-md);
+    }
+
+    .hero img {
+        margin-top: var(--space-sm);
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Small mono labels: text left, category / count right */
+    .hero .text-label,
+    #work > h2.text-label {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-sm);
+        margin: var(--space-xs) 0 var(--space-sm);
+    }
+
+    #work > h2.text-label {
+        margin-top: var(--space-md);
+    }
+
+    /* Project grid: pairs, with the feature + landscape cards full width */
+    .grid {
+        gap: var(--space-md) 12px;
+    }
+
+    .card {
+        padding: 0;
+    }
+
+    .card img,
+    .card.horizontal img {
+        height: auto;
+        aspect-ratio: 3 / 4;
+        margin-bottom: var(--space-xs);
+    }
+
+    .card.horizontal,
+    .card--feature {
+        grid-column: span 2;
+    }
+
+    .card.horizontal img {
+        aspect-ratio: 3 / 2;
+    }
+
+    .card--feature img {
+        aspect-ratio: 4 / 5;
+    }
+
+    .card .text-muted {
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    #work > .button {
+        margin: var(--space-lg) 0 var(--space-md);
+    }
+
+    /* About: text only, like the Figma */
+    .about-row {
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding-top: var(--space-md);
+    }
+
+    #about img {
+        display: none;
+    }
+
+    .text-display-m {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    #about .text-display-m + .text-display-m {
+        margin-top: var(--space-sm);
+    }
+
+    #about .text-nav {
+        display: flex;
+        gap: var(--space-md);
+        margin: var(--space-md) 0;
+        font-size: 18px;
+        word-spacing: normal;
+    }
+
+    footer {
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-lg);
     }
 }
 

@@ -12,13 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/project-styles.css">
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
 
 <!-- Header / Desktop -->
 <header class="site-header">
     <a class="site-header__name" href="index.html">Daniel Höbenreich</a>
-    <nav aria-label="Main">
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" aria-label="Main">
         <ul class="site-nav">
             <li><a href="sports.html">Sports</a></li>
             <li><a class="is-active" href="travel.html">Travel</a></li>
@@ -72,10 +76,10 @@
         <div class="gallery__photo">
             <img src="images/Bikepacking-Scandinavia/96590017.jpg" alt="Cyclist with loaded bike on a straight road through the pines" loading="lazy">
         </div>
-        <div class="gallery__photo">
+        <div class="gallery__photo gallery__photo--half">
             <img src="images/Bikepacking-Scandinavia/82180024.jpg" alt="Red boathouse on the rocks by the water" loading="lazy">
         </div>
-        <div class="gallery__photo">
+        <div class="gallery__photo gallery__photo--half">
             <img src="images/Bikepacking-Scandinavia/96610014.jpg" alt="Backflip off a jumping tower into the lake at sunset" loading="lazy">
         </div>
 

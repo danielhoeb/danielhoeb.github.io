@@ -12,13 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/project-styles.css">
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
 
 <!-- Header / Desktop -->
 <header class="site-header">
     <a class="site-header__name" href="index.html">Daniel Höbenreich</a>
-    <nav aria-label="Main">
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" aria-label="Main">
         <ul class="site-nav">
             <li><a class="is-active" href="sports.html">Sports</a></li>
             <li><a href="travel.html">Travel</a></li>
@@ -69,10 +73,10 @@
         <div class="gallery__photo">
             <img src="images/rail-jam/photo-01.jpg" alt="Revelstoke Backyard Rail Jam – photo 1" loading="lazy">
         </div>
-        <div class="gallery__photo">
+        <div class="gallery__photo gallery__photo--half">
             <img src="images/rail-jam/photo-02.jpg" alt="Revelstoke Backyard Rail Jam – photo 2" loading="lazy">
         </div>
-        <div class="gallery__photo">
+        <div class="gallery__photo gallery__photo--half">
             <img src="images/rail-jam/photo-03.jpg" alt="Revelstoke Backyard Rail Jam – photo 3" loading="lazy">
         </div>
 
@@ -89,10 +93,10 @@
         <div class="gallery__photo">
             <img src="images/rail-jam/photo-07.jpg" alt="Revelstoke Backyard Rail Jam – photo 7" loading="lazy">
         </div>
-        <div class="gallery__photo">
+        <div class="gallery__photo gallery__photo--half">
             <img src="images/rail-jam/photo-08.jpg" alt="Revelstoke Backyard Rail Jam – photo 8" loading="lazy">
         </div>
-        <div class="gallery__photo">
+        <div class="gallery__photo gallery__photo--half">
             <img src="images/rail-jam/photo-09.jpg" alt="Revelstoke Backyard Rail Jam – photo 9" loading="lazy">
         </div>
     </section>

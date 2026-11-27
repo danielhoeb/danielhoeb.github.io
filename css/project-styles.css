@@ -424,3 +424,220 @@ a:focus-visible {
     padding: var(--space-md) 0;
     border-top: 1px solid var(--line-divider);
 }
+
+
+/* =========================================================
+   Menu button (☰): hidden on desktop, shown on phones
+   ========================================================= */
+.menu-button {
+    display: none;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.menu-button span {
+    position: absolute;
+    left: 3px;
+    width: 18px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.menu-button span:nth-child(1) { top: 6px; }
+.menu-button span:nth-child(2) { top: 11px; }
+.menu-button span:nth-child(3) { top: 16px; }
+
+/* Open: the three lines turn into an X */
+.menu-open .menu-button span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.menu-open .menu-button span:nth-child(2) { opacity: 0; }
+.menu-open .menu-button span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+
+/* =========================================================
+   Phones (Figma "Project Detail – Mobile")
+   ========================================================= */
+@media (max-width: 700px) {
+
+    /* Header: name left, ☰ right, menu folds open below */
+    .site-header {
+        flex-wrap: wrap;
+        padding: var(--space-sm);
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .site-header nav {
+        display: none;
+        flex-basis: 100%;
+    }
+
+    .menu-open .site-header nav {
+        display: block;
+    }
+
+    .site-nav {
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding: var(--space-md) 0 var(--space-sm);
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: -0.02em;
+    }
+
+    /* Intro */
+    .project-intro {
+        gap: var(--space-md);
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .project-title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .project-summary {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+
+    .project-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Meta as rows: label left, value right, thin lines between */
+    .project-meta {
+        flex-direction: column;
+        gap: 0;
+        white-space: normal;
+    }
+
+    .project-meta div {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: var(--space-sm);
+        padding: 12px 0;
+        border-top: 1px solid var(--line-divider);
+    }
+
+    .project-meta div:last-child {
+        border-bottom: 1px solid var(--line-divider);
+    }
+
+    .project-meta dd {
+        text-align: right;
+    }
+
+    /* Hero */
+    .project-hero {
+        padding: 0 var(--space-sm);
+    }
+
+    .project-hero img {
+        aspect-ratio: 4 / 3;
+    }
+
+    /* Gallery: 2 columns. Photos are full width,
+       except --half and --stack photos, which sit side by side. */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-sm) 0;
+    }
+
+    .gallery__photo,
+    .gallery__photo--feature,
+    .gallery__photo--wide,
+    .gallery__photo--full {
+        grid-column: span 2;
+        grid-row: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+    .gallery__photo--wide,
+    .gallery__photo--full {
+        aspect-ratio: 3 / 2;
+    }
+
+    .gallery__photo--half,
+    .gallery__photo--stack {
+        grid-column: span 1;
+        aspect-ratio: 2 / 3;
+    }
+
+    /* Next project */
+    .project-nav {
+        gap: var(--space-sm);
+        padding: var(--space-xl) var(--space-sm) var(--space-md);
+    }
+
+    .next-project {
+        gap: var(--space-sm);
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .project-nav__links {
+        gap: var(--space-sm);
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .site-footer {
+        margin: 0 var(--space-sm);
+    }
+
+    /* Category pages (Sports / Travel / Work) */
+    .category-list {
+        margin: 0 var(--space-sm);
+    }
+
+    .category-row__link {
+        grid-template-columns: 32px 1fr auto;
+        column-gap: var(--space-sm);
+        row-gap: 4px;
+        padding: var(--space-sm) 0;
+    }
+
+    .category-row__title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .category-row__arrow {
+        grid-column: 3;
+        grid-row: 1;
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .category-row__meta {
+        grid-column: 2 / -1;
+        white-space: normal;
+    }
+
+    .category-row__strip {
+        grid-column: 2 / -1;
+    }
+
+    /* Strip scrolls sideways if the photos don't fit */
+    .category-row__photos {
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .category-row__photos img {
+        height: 72px;
+        margin-top: var(--space-sm);
+    }
+}
